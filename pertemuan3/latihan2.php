@@ -9,6 +9,10 @@
         .warna-baris {
             background-color : silver;
         }
+
+        .warna-kolom {
+            background-color : red;
+        }
     </style>
 </head>
 <body>
@@ -29,7 +33,7 @@
         <?php if ($i % 2 == 1) : ?>
             <tr class="warna-baris">
         <?php else : ?>
-            <tr>
+            <tr class="warna-kolom">
         <?php endif; ?>
             <?php for ($j = 1; $j <=5; $j++) : ?>
                 <td><?php echo "$i,$j"; ?></td>
