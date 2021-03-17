@@ -20,7 +20,7 @@ var_dump($hari);
 echo "<br>";
 print_r($bulan);
 echo "<br>";
-// Menampilkan 1 elemen pada array
+// Menampilkan 1 elemen pada arrayy
 echo $arr[0];
 
 ?> -->

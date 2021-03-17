@@ -22,6 +22,6 @@ function salam($waktu = 'Datang', $nama = "Admin" ) {
     <title>Latihan Function</title>
 </head>
 <body>
-    <h1><?= salam("Siang", "Widy"); ?></h1>   
+    <h1><?= salam(); ?></h1>   
 </body>
 </html>

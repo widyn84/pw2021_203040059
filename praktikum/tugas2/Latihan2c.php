@@ -2,7 +2,7 @@
 /* 
 Widy Nugraha
 203040059
-Jum'at 10
+Jum'at 10.00
 */
 ?>
 
