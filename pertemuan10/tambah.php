@@ -3,36 +3,29 @@
 Widy Nugraha
 203040059
 https://github.com/widyn84/pw2021_203040059
-Pertemuan 9 - 27 April 2021
-Mempelajari tentang INSERT & DELETE
+Pertemuan 10 - 27 April 2021
+Mempelajari tentang INSERT DATA
 */
 ?>
 
 <?php
 require 'functions.php';
-// cek apakah tombol submit sudah ditekan atau belum
-if ( isset($_POST["submit"]) ) {
 
-
-
-
-    // cek apakah data berhasil ditambahkan atau tidak
-    if ( tambah($_POST) > 0 ) {
-        echo "
-             <script>
-                alert('Data berhasil ditambahkan!');
-                document.location.href = 'index.php';
-             </script>
-             ";
-    } else {
-        echo "
-             <script>
-                alert('Data berhasil ditambahkan!');
-                document.location.href = 'index.php';
-             </script>
-             ";
-    }
+// cek apakah tombol tambah sudah ditekan
+if(isset($_POST['tambah'])) {
+   if  (tambah($_POST) > 0 ) {
+       echo "<script>
+             alert('data berhasil ditambahkan!');
+             document.location.href = 'latihan3.php';
+             </script>";
+   } else {
+        echo "<script>
+        alert('data gagal ditambahkan!');
+        document.location.href = 'latihan3.php';
+        </script>";
+   }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -44,32 +37,41 @@ if ( isset($_POST["submit"]) ) {
     <title>Tambah Data Mahasiswa</title>
 </head>
 <body>
-    <h1>Tambah Data Mahasiswa</h1>
-
+    <h3>Form Tambah Data Mahasiswa</h3>
     <form action="" method="post">
         <ul>
             <li>
-                <label for="nama">Nama: </label>
-                <input type="text" name="nama" id="nama" required>
+             <label>
+                Nama:
+                <input type="text" name="nama" autofocus required>
+             </label>
             </li>
             <li>
-                <label for="nrp">NRP: </label>
-                <input type="text" name="nrp" id="nrp" required>
+            <label>
+                NRP:
+                <input type="text" name="nrp" required>
+             </label>            
             </li>
             <li>
-                <label for="email">:E-mail: </label>
-                <input type="text" name="email" id="email" required>
+            <label>
+                Email:
+                <input type="text" name="email" required>
+             </label>
             </li>
             <li>
-                <label for="jurusan">Jurusan: </label>
-                <input type="text" name="jurusan" id="jurusan" required>
+            <label>
+                Jurusan:
+                <input type="text" name="jurusan" required>
+             </label>
             </li>
             <li>
-                <label for="gambar">Gambar: </label>
-                <input type="text" name="gambar" id="gambar" required>
+            <label>
+                Gambar:
+                <input type="text" name="gambar" required>
+             </label>
             </li>
             <li>
-                <button type="submit" name="submit">Tambah Data!</button>
+                <button type="submit" name="tambah">Tambah Data</button>
             </li>
         </ul>
     </form>

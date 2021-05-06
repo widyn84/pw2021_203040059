@@ -3,49 +3,50 @@
 Widy Nugraha
 203040059
 https://github.com/widyn84/pw2021_203040059
-Pertemuan 9 - 27 April 2021
-Mempelajari tentang INSERT & DELETE
+Pertemuan 10 - 27 April 2021
+Mempelajari tentang INSERT
 */
 ?>
 
 <?php
 // koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "phpdasar");
+function koneksi() {
+    return mysqli_connect('localhost', 'root', '', 'pw_203040059');
+}
 
 function query($query) {
-    global $conn;
+    $conn = koneksi();
     $result = mysqli_query($conn, $query);
-    $rows = [];
-    while ( $row = mysqli_fetch_assoc($result) ) {
-        $rows[] = $row;
+
+    // jika hasilnya hanya 1 data
+    if (mysqli_num_rows($result) == 1) {
+        return mysqli_fetch_assoc($result);
     }
+
+
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+    }
+
     return $rows;
 }
 
-
 function tambah($data) {
-    global $conn;
-    // ambil data dari tiap elemen dalam form
-    $nrp = htmlspecialchars($data["nrp"]);
-    $nama = htmlspecialchars($data["nama"]);
-    $email = htmlspecialchars($data["email"]);
-    $jurusan = htmlspecialchars($data["jurusan"]);
-    $gambar = htmlspecialchars($data["gambar"]);
+    $conn = koneksi();
 
-    // query insert data
-    $query = "INSERT INTO mahasiswa
-              VALUES 
-              ('', '$nama', '$nrp', '$email', '$jurusan', '$gambar')
-             ";
+    $nama = htmlspecialchars($data['nama']);
+    $nrp = htmlspecialchars($data['nrp']);
+    $email = htmlspecialchars($data['email']);
+    $jurusan = htmlspecialchars($data['jurusan']);
+    $gambar = htmlspecialchars($data['gambar']);
+
+    $query = "INSERT INTO
+              mahasiswa
+              VALUES
+              (null, '$nama', '$nrp', '$email', '$jurusan', '$gambar')";
     mysqli_query($conn, $query);
-
-    return mysqli_affected_rows($conn);   
-}
-
-function hapus($id) {
-    global $conn;
-    mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = $id");
-    
-    return mysqli_affected_rows($conn); 
+    echo mysqli_error($conn);
+    return mysqli_affected_rows($conn);
 }
 ?>
