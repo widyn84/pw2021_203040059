@@ -58,7 +58,7 @@ if (isset($_POST['cari'])) {
     <?php if(empty($fashion)) :  ?>
         <tr>
             <td colspan="7">
-                <h1>Data tidak ditemukan</h1>
+                <h1><p style="color: red; font-style: italic;">Data tidak ditemukan</p></h1>
             </td>
         </tr>
     <?php else : ?>
