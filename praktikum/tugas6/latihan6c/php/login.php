@@ -7,23 +7,24 @@
 <?php
 session_start();
 require 'functions.php';
-
 // cek cookie
 if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
     $username = $_COOKIE['username'];
     $hash = $_COOKIE['hash'];
 
+
 // ambil username berdasarkan id
-    $result = mysqli_query(koneksi(), "SELECT * FROM user WHERE username = '$username'");
-    $row = mysqli_fetch_assoc($result);
+$result = mysqli_query(koneksi(), "SELECT * FROM user WHERE username = '$username'");
+$row = mysqli_fetch_assoc($result);
 
 // cek cookie dan username
-    if ($hash === hash('sha256', $row['id'], false)) {
-        $_SESSIOn['username'] = $row['username'];
-        header("Location: admin.php");
-        exit;
-    }
+if ($hash === hash('sha256', $row['id'], false)) {
+    $_SESSION['username'] = $row['username'];
+    header("Location: admin.php");
+    exit;
+ }
 }
+
 // melakukan pengecekan apakah user sudah melakukan Login jika sudah redirect ke halaman admin
 if (isset($_SESSION['username'])) {
     header("Location: admin.php");
@@ -40,23 +41,22 @@ if (isset($_POST['submit'])) {
         if (password_verify($password, $row['password'])) {
             $_SESSION['username'] = $_POST['username'];
             $_SESSION['hash'] = hash('sha256', $row['id'], false);
-        }
 
-        if (isset($_POST['remember'])) {
-            setcookie('username', $row['username'], time() + 60 * 60 * 24);
-            $hash = hash('sha256', $row['id']);
-            setcookie('hash', $hash, time() + 60 * 60 * 24);
-        }
-
-
-
-        if (hash('sha256', $row['id']) == $_SESSION['hash']) {
+            // jika remember me dicentang
+            if(isset($_POST['remember'])) {
+                setcookie('username', $row['username'], time() + 60 * 60 * 24);
+                $hash = hash('sha256', $row['id']);
+                setcookie('hash', $hash, time() + 60 * 60 * 24);
+            }
+        
+            if (hash('sha256', $row['id']) == $_SESSION['hash']) {
             header("Location: admin.php");
             die;
+            }
+            header("Location: ../index.php");
+            die;
         }
-        header("Location: ../index.php");
-        die;
-        }
+    }
     $error = true;
 }
 ?>
@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
         <tr>
             <td><label for="username">Username</label></td>
             <td>:</td>
-            <td><input type="text" name="username"></td>
+            <td><input type="text" name="username" autofocus autocomplete="off"></td>
         </tr>
         <tr>
             <td><label for="password">Password</label></td>

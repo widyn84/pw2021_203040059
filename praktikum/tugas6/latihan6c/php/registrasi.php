@@ -36,9 +36,6 @@ if (isset($_POST["register"])) {
             border : 3px solid skyblue;
             padding : 10px;
         }
-        body {
-        background-image: url("../assets/img/background.jpg");
-    }
     </style>
 </head>
 <body>
@@ -53,7 +50,12 @@ if (isset($_POST["register"])) {
         <tr>
             <td><label for="password">PASSWORD</label></td>
             <td>:</td>
-            <td><input type="password" name="password"></td>
+            <td><input type="password" name="password1"></td>
+        </tr>
+        <tr>
+            <td><label for="password">PASSWORD</label></td>
+            <td>:</td>
+            <td><input type="password" name="password2"></td>
         </tr>
     </table>
     <button type="submit" name="register">REGISTER</button>

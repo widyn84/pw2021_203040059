@@ -5,6 +5,12 @@
 ?>
 
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
+
 require 'functions.php';
 
 if (isset($_POST['tambah'])) {
@@ -36,9 +42,6 @@ if (isset($_POST['tambah'])) {
             border : 3px solid skyblue;
             padding : 10px;
         }
-        body {
-        background-image: url("../assets/img/background.jpg");
-    }
     </style>
 </head>
 <body>

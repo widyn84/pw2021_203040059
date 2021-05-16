@@ -5,6 +5,11 @@
 ?>
 
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
 // Menghubungkan denga file lainnya
 require 'functions.php';
 // melakukan query
@@ -32,9 +37,6 @@ if (isset($_POST['cari'])) {
         text-align: center;
         padding : 20px;
     }
-    body {
-        background-image: url("../assets/img/background.jpg");
-    }
     </style>
 </head>
 <body>
@@ -61,7 +63,7 @@ if (isset($_POST['cari'])) {
     <?php if(empty($fashion)) :  ?>
         <tr>
             <td colspan="7">
-                <h1>Data tidak ditemukan</h1>
+                <h1><p style="color: red; font-style: italic;">Data tidak ditemukan</p></h1>
             </td>
         </tr>
     <?php else : ?>

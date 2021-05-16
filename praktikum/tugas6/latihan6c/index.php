@@ -28,15 +28,12 @@ if (isset($_POST['cari'])) {
             border : 3px solid skyblue;
             padding : 10px;
         }
-        body {
-        background-image: url("../assets/img/background.jpg");
-    }
     </style>
 
 </head>
 <body>
     <div class="container">
-    <a href="../latihan6b/php/login.php"><button>ADMIN</button></a>
+    <a href="../latihan6c/php/login.php"><button>ADMIN</button></a>
         <form action="" method="post">
             <input type="text" name="keyword" autofocus>
             <button type="submit" name="cari">Cari</button>

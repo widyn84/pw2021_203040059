@@ -9,14 +9,21 @@ function koneksi()
 }
 
 // function untuk melakukan query dan memasukkannya kedalam array
-function query($sql)
-{
+function query($query) {
     $conn = koneksi();
-    $result = mysqli_query($conn, "$sql");
-    $row = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
+    $result = mysqli_query($conn, $query);
+
+    // jika hasilnya hanya 1 data
+    if (mysqli_num_rows($result) == 1) {
+        return mysqli_fetch_assoc($result);
     }
+
+
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+    }
+
     return $rows;
 }
 
@@ -86,11 +93,22 @@ function cari($keyword) {
     return query($query);
 }
 
+
 function registrasi($data)
 {
    $conn = koneksi();
    $username = strtolower(stripcslashes($data["username"]));
-   $password = mysqli_real_escape_string($conn, $data["password"]);
+   $password1 = mysqli_real_escape_string($conn, $data['password1']);
+   $password2 = mysqli_real_escape_string($conn, $data['password2']);
+
+    // jika username / password kosong
+    if(empty($username) || empty($password2) || empty($password2)) {
+        echo "<script>
+                alert('username / password tidak boleh kosong!');
+                document.location.href = 'registrasi.php';
+              </script>";
+        return false;
+    }   
 
     //  cek username sudah ada atau belum
     $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username' ");
@@ -101,13 +119,34 @@ function registrasi($data)
             return false;
     }
 
+    // jika konfirmasi password tidak sesuai
+    if ($password1 !== $password2) {
+        echo "<script>
+                alert('Password Tidak Sesuai!');
+                document.location.href = 'registrasi.php';
+              </script>";
+        return false;          
+    }
+
+    // jika password < 5 digit
+    if(strlen($password1) < 5) {
+        echo "<script>
+                alert('Password Terlalu Pendek!');
+                document.location.href = 'registrasi.php';
+              </script>";
+        return false;         
+    }
+    
+
     // enkripsi password
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password_baru = password_hash($password1, PASSWORD_DEFAULT);
 
     // tambah user baru
-    $query_tambah = "INSERT INTO user VALUES('', '$username', '$password')";
-    mysqli_query($conn, $query_tambah);
-
+    $query = "INSERT INTO user
+               VALUES
+              (null, '$username', '$password_baru')
+              ";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
     return mysqli_affected_rows($conn);
 }
 

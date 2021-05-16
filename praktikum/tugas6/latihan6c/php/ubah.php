@@ -5,6 +5,12 @@
 ?>
 
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
+
 require 'functions.php';
 
 $id = $_GET['id'];
@@ -39,9 +45,6 @@ if (isset($_POST['ubah'])) {
             border : 3px solid skyblue;
             padding : 10px;
         }
-        body {
-        background-image: url("../assets/img/background.jpg");
-    }
     </style>
 </head>
 <body>
