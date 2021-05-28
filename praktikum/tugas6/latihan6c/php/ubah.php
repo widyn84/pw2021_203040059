@@ -14,7 +14,7 @@ if (!isset($_SESSION['username'])) {
 require 'functions.php';
 
 $id = $_GET['id'];
-$fsh = query("SELECT * FROM fashion WHERE id = $id")[0];
+$fsh = query("SELECT * FROM fashion WHERE id = $id");
 
 if (isset($_POST['ubah'])) {
     if (ubah($_POST) > 0) {
