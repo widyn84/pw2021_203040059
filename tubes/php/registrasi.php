@@ -1,10 +1,4 @@
 <?php
-// Widy Nugraha
-// 203040059
-// Praktikum PW SHIFT JUM'AT 10
-?>
-
-<?php
 require 'functions.php';
 
 if (isset($_POST["register"])) {

@@ -1,9 +1,4 @@
 <?php
-// Widy Nugraha
-// 203040059
-// SHIFT JUM'AT JAM 10.00
-?>
-<?php
 session_start();
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
