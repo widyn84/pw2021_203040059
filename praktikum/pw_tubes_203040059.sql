@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2021 at 06:14 PM
+-- Generation Time: May 28, 2021 at 12:19 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -52,6 +52,26 @@ INSERT INTO `fashion` (`id`, `gambar`, `deskripsi`, `harga`, `kategori`, `jenis_
 (9, 'jeans2.jpg', 'WOMEN JEANS HIGH RISE SKINNY ANKLE', 'Rp.449.000', 'JEANS', 'WANITA'),
 (10, 'bawahan2.jpg', 'WOMEN CELANA PENDEK TUCK', 'Rp.299.000', 'CELANA PENDEK', 'WANITA');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(29, 'admin', '$2y$10$W3EOaQUQmgB/EUX8Zq/v1uYGcLrCA3S3EbzYmM.Hn.3jbn1Cq9q76'),
+(30, 'widy', '$2y$10$WHfdgymCoc6UsjO.uBHW6eA4TA34JwUxTW2SM57FEyE5ZFHqErMyq');
+
 --
 -- Indexes for dumped tables
 --
@@ -63,6 +83,12 @@ ALTER TABLE `fashion`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -70,7 +96,13 @@ ALTER TABLE `fashion`
 -- AUTO_INCREMENT for table `fashion`
 --
 ALTER TABLE `fashion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

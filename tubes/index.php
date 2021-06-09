@@ -1,10 +1,4 @@
 <?php
-// Widy Nugraha
-// 203040059
-// Shift Jum'at Jam 10.00
-?>
-
-<?php
 // menghubungkan dengan file php lainnya
 require 'php/functions.php';
 // melakukan query
