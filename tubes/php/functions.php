@@ -39,7 +39,7 @@ function tambah($data)
 
     $query = "INSERT INTO fashion
                     VALUES
-                    ('', '$gambar', '$deskripsi', '$harga', '$kategori', '$jenkel')";
+                    (NULL, '$gambar', '$deskripsi', '$harga', '$kategori', '$jenkel')";
                     
     mysqli_query($conn, $query);
 
