@@ -3,7 +3,6 @@
 // 203040059
 // SHIFT JUM'AT JAM 10.00
 ?>
-
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
@@ -22,7 +21,6 @@ if (isset($_POST['cari'])) {
     query("SELECT * FROM fashion");
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
