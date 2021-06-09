@@ -41,7 +41,7 @@
                         <li class="list-group-item"><a href="kuliah/pertemuan10/" target="blank">Pertemuan 10</a></li>
                         <li class="list-group-item"><a href="kuliah/pertemuan11/" target="blank">Pertemuan 11</a></li>
                         <li class="list-group-item"><a href="kuliah/pertemuan12/" target="blank">Pertemuan 12</a></li>
-                        <li class="list-group-item"><a href="kuliah/pertemuan13/">Pertemuan 13</a></li>    
+                        <li class="list-group-item"><a href="kuliah/pertemuan13/" target="blank">Pertemuan 13</a></li>  
                     </ul>
                 </div>
             </div>            
@@ -57,7 +57,7 @@
                         <li class="list-group-item"><a href="praktikum/tugas4/" target="blank">Pertemuan 4</a></li>
                         <li class="list-group-item"><a href="praktikum/tugas5/" target="blank">Pertemuan 5</a></li>
                         <li class="list-group-item"><a href="praktikum/tugas6/" target="blank">Pertemuan 6</a></li>
-                        <a href="tubes/index.php">Tubes</a>
+                        <li class="list-group-item"><a href="tubes/index.php" target="blank">Tugas Besar</a></li>
                     </div>
                 </div>
     </div>
