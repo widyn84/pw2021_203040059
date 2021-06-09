@@ -57,7 +57,7 @@
                         <li class="list-group-item"><a href="praktikum/tugas4/" target="blank">Pertemuan 4</a></li>
                         <li class="list-group-item"><a href="praktikum/tugas5/" target="blank">Pertemuan 5</a></li>
                         <li class="list-group-item"><a href="praktikum/tugas6/" target="blank">Pertemuan 6</a></li>
-                        <a href="tubes/index.php"></a>
+                        <a href="tubes/index.php">Tubes</a>
                     </div>
                 </div>
     </div>
