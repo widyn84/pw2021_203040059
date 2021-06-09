@@ -3,7 +3,6 @@
 // 203040059
 // Praktikum PW SHIFT JUM'AT 10
 ?>
-
 <?php
 session_start();
 require 'functions.php';
@@ -60,7 +59,6 @@ if (isset($_POST['submit'])) {
     $error = true;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
