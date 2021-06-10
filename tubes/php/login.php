@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
         <label for="remember">Remember me</label>
     </div>
     <button type="submit" name="submit" class="btn btn-outline-warning">Login</button>
-    <button type="submit" name="kembali" class="btn btn-outline-warning"><a href="../index.php">Kembali</a></button>
+    <button type="button" name="kembali" class="btn btn-outline-warning"><a href="../index.php">Kembali</a></button>
 </form>
 <div class="registrasi">
         <p>Belum punya akun? Registrasi <a href="registrasi.php">Disini</a></p>
