@@ -45,10 +45,10 @@ if (isset($_POST['submit'])) {
         
             if (hash('sha256', $row['id']) == $_SESSION['hash']) {
             header("Location: admin.php");
-            die;
+            exit;
             }
             header("Location: ../index.php");
-            die;
+            exit;
         }
     }
     $error = true;
